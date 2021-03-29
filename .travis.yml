@@ -1,0 +1,13 @@
+language: ruby
+ruby:
+  - "3"
+
+before_install:
+  - gem install bundler
+
+install:
+  - bundler
+
+script:
+  - bundle exec rspec
+  - bundle exec cucumber
