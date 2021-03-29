@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH << File.expand_path(File.join(__dir__, '..', 'lib'))
+
+require "loader"
+
+calculator = Kata::FizzBuzz::Core::FizzBuzzCalculator.init
+
+1.upto(100) do |number|
+    puts calculator.value(number)
+end
