@@ -6,6 +6,22 @@ module Kata::FizzBuzz::Core
 			@fizzbuzz = FizzBuzzCalculator.init
 		end
 
+		context 'cuando paso algo que no es un número' do
+			it 'debería dar error' do
+				expect {
+					@fizzbuzz.value nil
+				}.to raise_error(FizzBuzzCalculator::ThisIsNotANumber)
+
+				expect {
+					@fizzbuzz.value ""
+				}.to raise_error(FizzBuzzCalculator::ThisIsNotANumber)
+
+				expect {
+					@fizzbuzz.value :value
+				}.to raise_error(FizzBuzzCalculator::ThisIsNotANumber)
+			end
+		end
+
 		context 'cuando el número divisible entre 3' do
 			it 'debería dar fizz' do
 				expect(@fizzbuzz.value(9)).to eq "fizz"
