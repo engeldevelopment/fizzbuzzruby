@@ -6,6 +6,23 @@ require "loader"
 
 calculator = Kata::FizzBuzz::Core::FizzBuzzCalculator.init
 
-1.upto(100) do |number|
-    puts calculator.value(number)
+
+if ARGV.length <= 0
+    puts "Debes indicar el rango final."
+    return
+end
+
+begin
+    to = Integer(ARGV[0])
+
+    if to <= 0
+        puts "Debes indicar un numero entero positivo."
+        return
+    end
+
+    1.upto(to) do |number|
+        puts calculator.value(number)
+    end
+rescue ArgumentError => e
+    puts e.message
 end
